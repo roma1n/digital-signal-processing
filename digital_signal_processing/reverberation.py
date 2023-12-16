@@ -3,7 +3,7 @@ from asteroid.models import BaseModel
 from digital_signal_processing import utils
 
 
-model = BaseModel.from_pretrained("JorisCos/DPTNet_Libri1Mix_enhsingle_16k")
+model = BaseModel.from_pretrained("cankeles/ConvTasNet_WHAMR_enhsingle_16k")
 
 
 FILES = [
