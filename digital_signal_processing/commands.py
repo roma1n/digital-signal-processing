@@ -2,6 +2,7 @@ import fire
 
 from digital_signal_processing import (
     equalizer,
+    metrics,
 )
 
 
@@ -15,6 +16,8 @@ class Sound:
     def equalizer(self):
         equalizer.equalizer()
 
+    def metrics(self):
+        metrics.metrics()
 
 
 def main():
