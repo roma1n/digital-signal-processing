@@ -1,0 +1,8 @@
+.venv
+*.DS_Store*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+digital_signal_processing/__pycache__/
+*.py[cod]
+*$py.class
