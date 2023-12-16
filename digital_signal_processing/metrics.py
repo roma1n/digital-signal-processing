@@ -21,6 +21,10 @@ FILES = [
     'data/gt_recording.wav',
     'data/gt_transformed_resp_5000.wav',
     'data/gt_transformed.wav',
+    'data/reverberation/gt_est1.wav',
+    'data/reverberation/gt_recording_est1.wav',
+    'data/reverberation/gt_transformed_resp_5000_est1.wav',
+    'data/reverberation/gt_transformed_est1.wav',
 ]
 
 

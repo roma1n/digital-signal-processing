@@ -30,3 +30,10 @@ poetry run sound metrics
 |  1 | data/gt_recording.wav             |  -6.40356 | -14.5361 | 1.64996 |   1.86377 | set_mannualy |
 |  2 | data/gt_transformed_resp_5000.wav |  -9.31557 | -24.1579 | 1.5475  |   2.32739 | set_mannualy |
 |  3 | data/gt_transformed.wav           | -20.6623  | -51.2892 | 1.17754 | nan       | set_mannualy |
+
+
+## Модуль 3
+
+```
+poetry run sound reverbration
+```

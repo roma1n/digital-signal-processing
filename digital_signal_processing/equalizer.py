@@ -9,9 +9,8 @@ from scipy import (
 from digital_signal_processing import utils
 
 
-# GAIN_CLIP = 5
 GAIN_CLIP = None
-RESP_LEN = 5000
+RESP_LEN = 10000
 
 
 def get_band_index(spectrum, num_bands=64):
@@ -23,7 +22,7 @@ def get_band_mean(spectrum, num_bands=64):
     Бьем частотную область на полосы (aka бэнды будущего эквалайзера) - лучше 32 полосы, можно 16, меньше 16 не стоит, больше 32 можно
     В каждой полосе берем либо центральное, либо среднее значение амплитуды
     '''
-    band_index = ((np.arange(spectrum.shape[0]) / (spectrum.shape[0] + 1)) * num_bands).astype(int)
+    band_index = get_band_index(spectrum, num_bands)
     bands = np.zeros(num_bands)
     counts = np.zeros(num_bands)
     bands[band_index] += spectrum
@@ -55,7 +54,8 @@ def get_gains(clip=None):
 
 def correct_spectrum(spectrum, gains):
     corrected = spectrum.copy()
-    corrected[:utils.MAX_FREQ] *= gains[get_band_index(spectrum[:utils.MAX_FREQ], num_bands=gains.shape[0])]
+    corrected[:utils.MAX_FREQ] *= gains[get_band_index(spectrum, num_bands=gains.shape[0])[:utils.MAX_FREQ]]
+    corrected[utils.MAX_FREQ:] = 0
     return corrected
 
 

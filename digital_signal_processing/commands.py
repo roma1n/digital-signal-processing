@@ -3,6 +3,7 @@ import fire
 from digital_signal_processing import (
     equalizer,
     metrics,
+    reverberation,
 )
 
 
@@ -18,6 +19,9 @@ class Sound:
 
     def metrics(self):
         metrics.metrics()
+
+    def reverberation(self):
+        reverberation.reverberation()
 
 
 def main():
