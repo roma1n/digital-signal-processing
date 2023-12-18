@@ -41,7 +41,7 @@ poetry run sound metrics
 Запуск:
 
 ```
-poetry run sound reverbration
+poetry run sound reverberation
 ```
 
 Метрики:
