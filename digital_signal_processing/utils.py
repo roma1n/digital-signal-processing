@@ -46,4 +46,7 @@ def align(orig, recording):
         left = max(mid - 3 * step, 0)
         right = min(mid + 3 * step, recording.shape[0] - orig.shape[0])
     print(f'Selected shift: {mid}')
+
+    ## найс
+
     return recording[mid:orig.shape[0] + mid]

@@ -49,6 +49,8 @@ def get_gains(clip=None):
     gains = get_band_mean(recording_fft) / (get_band_mean(sweep_fft) + 1e-10)
     if clip:
         gains = np.clip(gains, 1/clip, clip)
+    ## в целом норм идея как защита от странных выборосов, но слишком сильно клипать нельзя, иначе теряется смысл коррекции АЧХ
+    ## (во что она скорректируется, если мы возьмем ненастоящие значения?)
     return gains
 
 
@@ -57,6 +59,8 @@ def correct_spectrum(spectrum, gains):
     corrected[:utils.MAX_FREQ] *= gains[get_band_index(spectrum, num_bands=gains.shape[0])[:utils.MAX_FREQ]]
     corrected[utils.MAX_FREQ:] = 0
     return corrected
+
+## хотелось бы графики спектров до и после коррекции
 
 
 def process_white_noise(gains, gain_clip=None):
@@ -102,6 +106,8 @@ def transform_gt(resp_len=None):
     response = get_response()
     if resp_len:
         response = response[:resp_len]
+    ## вот это топ идея, молодец
+
     gt_transformed = signal.convolve(gt, response, mode='same')
 
     fname = f'data/gt_transformed_resp_{resp_len}.wav' if resp_len else 'data/gt_transformed.wav'

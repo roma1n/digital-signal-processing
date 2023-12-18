@@ -10,8 +10,9 @@ from torchmetrics.audio import (
 
 from digital_signal_processing import utils
 
-PESQ_SAMPLING_FREQ = 8000
-DNSMOS_SAMPLING_FREQ = 16000
+PESQ_SAMPLING_FREQ = 8000   ## для использования пески с таким семплрейтом надо ресемплить аудио в соответствующий семлрейт
+DNSMOS_SAMPLING_FREQ = 16000   ## тут аналогично
+## значения некорректные получаются, если не ресемплить
 
 
 TARGET_FILE = 'data/gt.wav'
@@ -79,6 +80,9 @@ def metrics():
     
     result = pd.DataFrame(result)
     print(result.to_markdown())
+
+
+    ## a NISQA где?
 
 
 if __name__ == '__main__':
